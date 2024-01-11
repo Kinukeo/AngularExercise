@@ -1,3 +1,13 @@
-@for (japaneseWord of japaneseWords; track japaneseWord.id) {
-<h2>{{ japaneseWord.word }}</h2>
-}
+<div cdkDropList cdkDropListOrientation="horizontal" class="word-list">
+  @for (japaneseWord of japaneseWords; track japaneseWord.id) {
+  <div class="word-block" cdkDrag>
+    <h2>
+      {{ japaneseWord.word }}
+    </h2>
+
+    <p>
+      {{ japaneseWord.englishWord }}
+    </p>
+  </div>
+  }
+</div>
