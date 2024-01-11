@@ -1,13 +1,19 @@
-<div cdkDropList cdkDropListOrientation="horizontal" class="word-list">
-  @for (japaneseWord of japaneseWords; track japaneseWord.id) {
+<div
+  cdkDropList
+  cdkDropListOrientation="horizontal"
+  class="word-list"
+  (cdkDropListDropped)="drop($event)"
+>
+  @for (shuffledWord of shuffledWords; track shuffledWord.id) {
   <div class="word-block" cdkDrag>
     <h2>
-      {{ japaneseWord.word }}
+      {{ shuffledWord.word }}
     </h2>
-
     <p>
-      {{ japaneseWord.englishWord }}
+      {{ shuffledWord.englishWord }}
     </p>
   </div>
   }
 </div>
+
+<div>{{ isCorrectAnswer() ? "Good Job!" : "Try again!" }}</div>
